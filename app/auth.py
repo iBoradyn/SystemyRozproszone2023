@@ -54,7 +54,7 @@ def login():
         user = cur.fetchone()
         cur.close()
 
-        if user is None or not check_password_hash(user['password'], password):
+        if user is None or not user['is_staff'] or not check_password_hash(user['password'], password):
             error = 'Niepoprawne dane.'
 
         if error is None:

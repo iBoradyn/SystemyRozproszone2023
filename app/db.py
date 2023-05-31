@@ -7,8 +7,6 @@ from flask import current_app, g
 
 
 def get_db():
-    print(os.environ['DATABASE_HOST'])
-
     if 'db' not in g:
         g.db = psycopg2.connect(
             host=os.environ['DATABASE_HOST'],

@@ -12,5 +12,6 @@ CREATE TABLE "user" (
   id SERIAL PRIMARY KEY,
   username TEXT UNIQUE NOT NULL,
   password TEXT NOT NULL,
+  is_staff BOOLEAN DEFAULT FALSE,
   is_admin BOOLEAN DEFAULT FALSE
 );
