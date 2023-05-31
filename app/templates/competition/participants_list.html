@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Lista uczestników{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <table class="table">
+      <tr>
+        <th scope="col">Imię</th>
+        <th scope="col">Nazwisko</th>
+        <th scope="col">Email</th>
+        {% if g.user['is_admin'] == 1 %}
+          <th scope="col"></th>
+        {% endif %}
+      </tr>
+    {% for participant in participants %}
+      <tr>
+        <td>{{ participant['first_name'] }}</td>
+        <td>{{ participant['last_name'] }}</td>
+        <td>{{ participant['email'] }}</td>
+        {% if g.user['is_admin'] == 1 %}
+          <td>
+            <form action="{{ url_for('competition.delete', id=participant['id']) }}" method="post">
+              <input class="btn btn-danger btn-sm" type="submit" value="Usuń" onclick="return confirm('Na pewno usunąć {{ participant['email'] }}?');">
+            </form>
+          </td>
+        {% endif %}
+      </tr>
+    {% endfor %}
+    </table>
+  </div>
+{% endblock %}

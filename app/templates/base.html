@@ -1,0 +1,63 @@
+<!doctype html>
+<head>
+  <meta charset="UTF-8">
+
+  <title>{% block title %}{% endblock %} - Super Konkurs!</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-5.3.0-dist/css/bootstrap.min.css') }}">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light px-2 px-lg-5">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ url_for('competition.index') }}">Super konkurs!</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 w-auto">
+          {% if g.user %}
+            <li class="nav-item">
+              <span class="nav-link">{{ g.user['username'] }}</span>
+            </li>
+            {% if g.user %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('competition.participants_list') }}">Lista uczestników</a>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('competition.index') }}">Strona główna</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('auth.logout') }}">Wyloguj</a>
+            </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('competition.index') }}">Strona główna</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('auth.login') }}">Zaloguj się</a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="text-center mb-2 py-2 bg-body-secondary border">
+    {% block header %}{% endblock %}
+  </header>
+
+  <div class="p-2">
+    <div class="container ">
+      {% for message in get_flashed_messages() %}
+        <div class="text-center py-3 mb-3 bg-danger text-light border border-2 border-dark">{{ message }}</div>
+      {% endfor %}
+    </div>
+
+    {% block content %}{% endblock %}
+  </div>
+
+  <script src="{{ url_for('static', filename='bootstrap-5.3.0-dist/js/bootstrap.min.js') }}"></script>
+</body>

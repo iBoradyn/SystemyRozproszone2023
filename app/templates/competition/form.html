@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Formularz zapisu na konkurs{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <form method="post">
+      <div class="mb-3">
+        <label class="form-label" for="first_name">Imię</label>
+        <input class="form-control" name="first_name" id="first_name" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="last_name">Nazwisko</label>
+        <input class="form-control" name="last_name" id="last_name" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-control" type="email" name="email" id="email" required>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Zapisz się</button>
+    </form>
+  </div>
+{% endblock %}

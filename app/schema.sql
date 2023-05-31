@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS participant;
+DROP TABLE IF EXISTS "user";
+
+CREATE TABLE participant (
+  id SERIAL PRIMARY KEY,
+  first_name TEXT NOT NULL,
+  last_name TEXT NOT NULL,
+  email TEXT UNIQUE NOT NULL
+);
+
+CREATE TABLE "user" (
+  id SERIAL PRIMARY KEY,
+  username TEXT UNIQUE NOT NULL,
+  password TEXT NOT NULL,
+  is_admin BOOLEAN DEFAULT FALSE
+);

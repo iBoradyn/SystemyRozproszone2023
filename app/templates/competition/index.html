@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Konkurs{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <section class="container">
+    <h2 class="text-center py-2">O Konkursie</h2>
+    <hr>
+    <div>
+      <div class="pe-3">
+        <img class="float-end" src="{{ url_for('static', filename='images/about.jpeg') }}" alt="Zdjęcie o konkursie">
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci consequatur cumque, deserunt ducimus, ex
+        excepturi exercitationem incidunt inventore itaque maxime, minima modi necessitatibus nemo quae quaerat sed
+        tenetur voluptate voluptates voluptatum. Ad adipisci assumenda cum cupiditate deleniti labore maxime
+        necessitatibus ratione reiciendis vel. Asperiores error facilis harum libero minus neque numquam quisquam
+        reiciendis sunt tempore? Accusamus ad alias, culpa error inventore iure! Alias animi at consectetur deserunt
+        esse est explicabo facilis hic, id nobis non, nostrum obcaecati odit recusandae sed, sunt tempora totam.
+        Consequatur culpa cumque dignissimos distinctio doloremque, dolorum excepturi exercitationem fuga illum iusto
+        laboriosam necessitatibus neque, non omnis, quos saepe ut vitae voluptatum? A accusamus, blanditiis dolores
+        error in mollitia natus nisi tempora vitae. Fuga, incidunt, optio! A, consequuntur dolor dolore dolores
+        doloribus eos esse excepturi exercitationem fuga harum in ipsam iure iusto magni maxime nobis odit porro
+        praesentium, provident, quis reprehenderit unde veniam veritatis! A ab accusamus adipisci alias amet asperiores
+        atque commodi deleniti dicta ducimus error esse, facilis fugiat fugit harum hic impedit inventore iure modi
+        natus nisi non nostrum numquam obcaecati optio pariatur possimus quae quasi quo ratione recusandae reprehenderit
+        repudiandae sapiente sunt suscipit tempora veniam. Cupiditate et fugit, itaque iure libero magnam repellat
+        saepe. Blanditiis corporis dicta dolore dolorum enim eum ipsum libero magnam, minus odio odit placeat
+        praesentium quisquam reprehenderit tenetur ullam ut veniam voluptas! Alias consectetur consequatur dicta
+        exercitationem, fuga harum libero nulla voluptatem! Architecto assumenda aut doloribus et facere fugiat harum
+        ipsam, natus pariatur perspiciatis quibusdam ullam ut voluptas! Nesciunt.
+      </p>
+    </div>
+  </section>
+  <section class="bg-body-secondary py-2">
+    <div class="container">
+      <h2 class="text-center py-2">Graj i wygrywaj ciekawe nagrody!</h2>
+      <hr>
+      <div>
+        <h4 class="text-center py-1">Obejrzyj poniższy film i zobacz co na ciebie czeka.</h4>
+        <video controls>
+          <source src="{{ url_for('static', filename='videos/rickroll.mp4') }}" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="text-center my-2 py-2">
+      <a class="btn btn-primary btn-lg" href="{{ url_for('competition.apply') }}">Zapisz się już teraz!</a>
+    </div>
+  </section>
+{% endblock %}
