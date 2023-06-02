@@ -10,7 +10,7 @@
     <hr>
     <div>
       <div class="pe-3">
-        <img class="float-end" src="{{ url_for('static', filename='images/about.jpeg') }}" alt="Zdjęcie o konkursie">
+        <img class="float-end" src="{{ url_for('static', filename='images/about.jpeg') }}" alt="Zdjęcie o konkursie" title="uwaga-konkurs">
       </div>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci consequatur cumque, deserunt ducimus, ex
@@ -40,7 +40,7 @@
       <hr>
       <div>
         <h4 class="text-center py-1">Obejrzyj poniższy film i zobacz co na ciebie czeka.</h4>
-        <video controls>
+        <video title="Rick Astley - Never Gonna Give You Up (Official Music Video)" controls>
           <source src="{{ url_for('static', filename='videos/rickroll.mp4') }}" type="video/mp4">
         </video>
       </div>
